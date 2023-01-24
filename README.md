@@ -1,5 +1,7 @@
 ## Project set up
-composer install
+Open the project directory and run 'composer install' in the main directory. 
+Go to phpMyAdmin and import database aglet_test.sql
+Use either xampp or wampp to run the project 
 
 ## Kindly note some of the NavBar links not redirecting to any pages, they were just for testing how the navbar comes out
 
