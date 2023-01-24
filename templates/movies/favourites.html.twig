@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Movies{% endblock %}
+
+{% block content %}
+
+<div class="container">
+      <div class=" blog_section">
+          <div class="row">
+              <div class="col-md-8">             
+                  <div class="row single_blog">
+                      {% if movies != [] %}
+                          {% for movie in movies %}
+                          <div class="blog col-md-6" itemscope itemtype="favourites">
+                              <div class="blog_image">
+                                  <span itemprop="type"><a href="#"><button disabled class="btn btn-light">{{ movie.title }}</button></a></span>
+                                  <a href="#">
+                                        <img src="https://www.shutterstock.com/image-photo/movie-projector-on-dark-background-600w-753798850.jpg" alt="">
+                                    </a>
+                                   <p class="post-meta"><span itemprop="date">Released on {{ movie.release_date |date("d/m/Y", "Africa/Harare")}}</span></p>
+                              </div>                             
+                              <div class="blog_title" style="border-bottom: 2px solid #47b2ca;">
+                                  <p class="notbold"><span style="font-weight: normal;"> {{movie.overview|striptags|truncate (100, true) }}</span></p>                            
+                                  <span itemprop="type"><a href="#"><button class="btn btn-dark">Rate Movie</button></a></span>
+                              </div>
+                          </div>  
+                          {% endfor %}
+                      {% else %}
+                      <h3 class="text-center">No Movies Avaiable </h3>
+                      {% endif %}
+                  </div>
+                  <div class="row"></div> 
+              </div>
+              <div class="col-md-1"></div>
+              {{ include('components/fav-sidebar.html.twig') }}
+          </div>
+            
+      </div>
+  </div>
+  <hr>
+
+{% endblock %}

@@ -1,0 +1,135 @@
+:root{
+    --main-color :#28986D;
+    --body-color : #F0F5FA;
+    --pure:#fff;
+    --dark:#252020;
+    --error:#f51818;
+    --border:#F0F0F0;
+    --link:#496984;
+    
+}
+body{
+    background-color: var(--body-color) !important;
+}
+a{
+    text-decoration: none;
+}
+/* navbar style */
+nav{
+    background: rgba(38, 174, 174, 0.763);
+}
+nav img{
+    height:45px;
+}
+/* hero style */
+.hero{
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.hero h4{
+    font-weight: 600;
+    font-size: 2em;
+    text-align: center;
+}
+.hero p{
+    margin-top:20px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+/* blog style */
+.blog_section{
+    width: 100%;
+    height: auto;
+}
+
+.blog{
+    height:auto;
+    margin: 15px 0px;
+}
+.blog img{
+    width: 100%;
+    filter: brightness(0.8);
+    height: 220px !important;
+    
+}
+.blog_title{
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    background-color: var(--pure);
+}
+.blog_title h3{
+    text-align: left;
+    font-size: 20px;
+    font-weight: 500;
+}
+.blog_btn{
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    background-color: var(--pure);
+}
+.blog_btn button{
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 50px;
+    width: 100%;
+    text-align: center;
+    background: transparent;
+    color:  var(--main-color);
+    font-weight: 500;
+}
+
+/* footer style */
+.footer{
+    background:rgba(3, 13, 53, 0.782);
+    height:auto;
+}
+
+.copyright-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height:50px;
+    color:#909090;
+}
+.active{
+    background: var(--main-color);
+    border-radius: 2px;
+}
+
+.error{
+    color:var(--error);
+}
+.success{
+    color:var(--main-color);
+}
+
+.header{
+    margin-top: 100px;
+}
+.header h2{
+    text-align: center;
+}
+.para {
+    text-align: justify;
+}
+
+.post-meta {
+    font-size: 18px;
+    font-style: italic;
+    margin-top: 0;
+    color: #868e96;
+    font-family: Lora,'Times New Roman',serif;
+}
+
+.notbold {
+    font-weight: normal;
+}
+
+.textdeco {
+    text-decoration:none;
+}
+

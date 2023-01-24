@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+    {{ include('components/header.html.twig')}}
+    <body>
+        {{ include('components/navbar.html.twig')}}
+
+        {{ include('components/hero.html.twig')}} 
+        
+        {% block content %}{% endblock %}
+
+        {{ include('components/footer.html.twig') }}   
+    </body>
+</html>

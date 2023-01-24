@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Movies{% endblock %}
+
+{% block content %}
+
+<div class="container">
+      <div class=" blog_section">
+          <div class="row">
+              <div class="col-md-8">             
+                  <div class="row single_blog">
+                      {% if all_movies != [] %}
+                          {% for movie in all_movies %}
+                          <div class="blog col-md-6" itemscope itemtype="home">
+                              <div class="blog_image">
+                                  <span itemprop="type"><a href="#"><button onmouseover="triggerModal()" disabled class="btn btn-light">{{ movie.title }}</button></a></span>
+                                  <a href="#">
+                                        <img src="https://www.shutterstock.com/image-photo/movie-projector-on-dark-background-600w-753798850.jpg" onmouseover="triggerModal()" alt="">
+                                    </a>
+                                   <p class="post-meta"><span itemprop="date">Released on {{ movie.release_date |date("d/m/Y", "Africa/Harare")}}</span></p>
+                              </div>                             
+                              <div class="blog_title" style="border-bottom: 2px solid #47b2ca;">
+                                  <p class="notbold"><span style="font-weight: normal;"> {{movie.overview|striptags|truncate (100, true) }}</span></p>
+                                  <form method="post" action="add-favourite">   
+                                  <input type="hidden" value="{{movie.title}}" name="title">                         
+                                  <input type="hidden" value="{{movie.original_title}}" name="original_title">                         
+                                  <input type="hidden" value="{{movie.original_language}}" name="original_language">                         
+                                  <input type="hidden" value="{{movie.overview}}" name="overview">                         
+                                  <input type="hidden" value="{{movie.poster_path}}" name="poster_path">                         
+                                  <input type="hidden" value="{{movie.release_date}}" name="release_date">                         
+                                  <input type="hidden" value="{{movie.vote_count}}" name="vote_count">                     
+                                  <button type="submit" name="save" value="submit" class="btn btn-dark">Add to Favourites</button>
+                                  </form>
+                              </div>
+                          </div>  
+
+                          <!-- Modal -->
+                        <div class="modal top fade"
+                            id="MovieModal"
+                            tabindex="-1"
+                            aria-labelledby="exampleModalLabel"
+                            aria-hidden="true"
+                            data-mdb-backdrop="true"
+                            data-mdb-keyboard="true">
+                        <div class="modal-dialog  ">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Movie Info</h5>
+                                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            <p>Title: {{movie.title}}</p>
+                            <p>Overview: {{movie.overview}}</p>
+                            <p>Release Date: {{movie.release_date}}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+                                Close
+                                </button>
+                            </div>
+                            </div>
+                        </div>
+                        </div>
+
+                          {% endfor %}
+                      {% else %}
+                      <h3 class="text-center">No Movies Avaiable </h3>
+                      {% endif %}
+                  </div>
+                  <div class="row"></div> 
+              </div>
+              <div class="col-md-1"></div>
+              {{ include('components/sidebar.html.twig') }}
+          </div>
+            
+      </div>
+  </div>
+  <hr>
+  <script>
+    function triggerModal(){
+        const myModalEl = document.getElementById('MovieModal');
+        const modal = new mdb.Modal(myModalEl);
+        modal.toggle();
+    }
+  </script>
+
+{% endblock %}

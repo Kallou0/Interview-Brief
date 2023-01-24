@@ -1,0 +1,24 @@
+    
+<div class="col-md-3">
+    <h3 class="control-label">Favourites Latest Movie</h3><br>
+    <div class="row single_blog">
+        {% if latest_movie != [] %}
+            <div class="data_image">
+                <img src="https://www.shutterstock.com/image-photo/movie-projector-on-dark-background-600w-753798850.jpg" alt="" width="350px" height="160px">
+                <p class="post-meta">Released on {{ latest_movie.release_date |date("d/m/Y", "Africa/Harare")}}</p>
+            </div>
+            
+            <div class="data_title">
+                <h3>{{latest_movie.title}}</h3>
+                <p class="notbold"><span style="font-weight: normal;"> {{latest_movie.overview}}</span></p>
+            </div>
+            <div class="data_btn">
+                <a href="#"><button class="btn btn-success">Rate Movie</button></a>
+            </div>
+        {% else %}
+        
+        <h3 class="text-center">No Movies Avaiable </h3>
+        {% endif %}
+    </div>
+
+</div>

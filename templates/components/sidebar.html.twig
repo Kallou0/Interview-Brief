@@ -1,0 +1,33 @@
+    
+<div class="col-md-3">
+    <h3 class="control-label">Latest Movie</h3><br>
+    <div class="row single_blog">
+        {% if latest_movie != [] %}
+            <div class="blog_image">
+                <img src="https://www.shutterstock.com/image-photo/movie-projector-on-dark-background-600w-753798850.jpg" alt="" width="350px" height="160px">
+                <p class="post-meta">Released on {{ latest_movie.release_date |date("d/m/Y", "Africa/Harare")}}</p>
+            </div>
+            
+            <div class="blog_title">
+                <h3>{{latest_movie.title}}</h3>
+                <p class="notbold"><span style="font-weight: normal;"> {{latest_movie.overview}}</span></p>
+            </div>
+            <form method="post" action="add-favourite">   
+                <input type="hidden" value="{{latest_movie.title}}" name="title">                         
+                <input type="hidden" value="{{latest_movie.original_title}}" name="original_title">                         
+                <input type="hidden" value="{{latest_movie.original_language}}" name="original_language">                         
+                <input type="hidden" value="{{latest_movie.overview}}" name="overview">                         
+                <input type="hidden" value="{{latest_movie.poster_path}}" name="poster_path">                         
+                <input type="hidden" value="{{latest_movie.release_date}}" name="release_date">                         
+                <input type="hidden" value="{{latest_movie.vote_count}}" name="vote_count">                     
+                <div class="blog_btn">
+                    <button type="submit" name="save" value="submit" class="btn btn-success">Add to Favourites</button>
+                </div>
+            </form>
+        {% else %}
+        
+        <h3 class="text-center">No Movies Avaiable </h3>
+        {% endif %}
+    </div>
+
+</div>
